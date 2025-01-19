@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ToDoList from "./components/ToDoList";
 
-function App() {
+const App: React.FC = () => {
+  const [todos, setTodos] = useState<string[]>([]);
+  const [newTodo, setNewTodo] = useState<string>("");
+
+  const addTodo = () => {
+    if (newTodo) {
+      setTodos([...todos, newTodo]);
+      setNewTodo(""); // Reset input field
+    }
+  };
+
+  const removeTodo = (index: number) => {
+    setTodos(todos.filter((_, todoIndex) => todoIndex !== index));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>To-Do App</h1>
+      <input
+        type="text"
+        value={newTodo}
+        onChange={(e) => setNewTodo(e.target.value)}
+        placeholder="Enter new To-DO"
+      />
+      <button onClick={addTodo}>Add To-Do</button>
+      <ToDoList todos={todos} removeTodo={removeTodo} />
     </div>
   );
-}
+};
 
 export default App;
