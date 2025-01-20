@@ -1,4 +1,4 @@
 **TO-DO APP**
 
 
-Todo application using reactjs and typescript
+Todo application using reactjs with drag and drop feature
