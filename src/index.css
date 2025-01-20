@@ -8,11 +8,12 @@ body {
   align-items: center;
 }
 
-div{
+.whole{
   padding: 20px;
-  width: 100%;
+  width:70rem;
   text-align: center;
 }
+
 
 h1{
   text-align: center;
@@ -20,80 +21,3 @@ h1{
   color: #ddd;
 }
 
-input{
-  width:50%;
-  padding: 10px;
-  border-radius: 10px;
-  font-size: 16px;
-  background-color: transparent;
-  border: 1px solid #ddd ;
-  color: whitesmoke;
-}
-
-button{
-  margin-left: 3% ;
-  background-color: #4caf50;
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  color: whitesmoke;
-  padding: 10px 15px;
-  transition: background-color 0.3s ease-in-out;
-}
-
-button:hover{
-  background-color: #518253;
-}
-input::placeholder{
-  color: azure;
-  opacity: 0.8;
-}
-.todo-list{
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-  background-color:rgba(221, 167, 175, 0.739);
-}
-
-.todo-item{
-  padding: 10px;
-  background-color: rgba(176, 54, 72, 0.739);
-  border: 1px solid #ddd;
-  display: flex;
-  justify-content:space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.todo-text{
-  flex-grow: 1;
-  font-size: 1.5rem;
-}
-
-.todo-actions{
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-
-}
-.todo-actions button{
-  background-color: #f44336;
-}
-
-.todo-actions button:hover{
-  background-color: #e53835c7;
-}
-
-.todo-edit{  
-  display: flex;
-  gap: 10px;
-  align-items: center;
-
-}
-.todo-edit input{
-  padding: 5px;
-  border: 1px solid #ccc;
-
-}

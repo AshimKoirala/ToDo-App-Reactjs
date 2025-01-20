@@ -6,6 +6,7 @@ const App: React.FC = () => {
   const [newTodo, setNewTodo] = useState<string>("");
   const [editingIndex, setEditingIndex] = useState<number | null>(null);//track index
   const[editTodo,setEditTodo]=useState<string>("");//track value
+  const [completedTodo, setCompletedTodo] = useState<string[]>([]);
 
   const addTodo = () => {
     if (newTodo) {
@@ -16,6 +17,10 @@ const App: React.FC = () => {
 
   const removeTodo = (index: number) => {
     setTodos(todos.filter((_, todoIndex) => todoIndex !== index));
+  };
+  
+  const removeCompletedTodo = (index: number) => {
+    setCompletedTodo((prev) => prev.filter((_, todoIndex) => todoIndex !== index));
   };
 
   const startEdit =(index:number)=>{
@@ -32,25 +37,40 @@ const App: React.FC = () => {
   }
 
   return (
-    <div>
-      <h1>To-Do App</h1>
+    <div className="whole">
+      <div className="upper">
+        <h1>To-Do App</h1>
       <input
         type="text"
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
+        onKeyDown={(e)=>{
+          if(e.key==='Enter'){
+            addTodo();
+          }
+        }}
         placeholder="Enter New To-Do"
       />
-      <button onClick={addTodo}>Add To-Do</button>
+      <button onClick={addTodo} >Add To-Do</button>
+      </div>
 
-         <ToDoList 
+      <div className="lower">
+        <ToDoList 
       todos={todos} 
+      setTodos={setTodos}
       startEdit={startEdit}
       saveEdit={saveEdit}
       editingIndex={editingIndex}
       editTodo={editTodo}
       setEditTodo={setEditTodo}
+      completedTodo={completedTodo}
+      setCompletedTodo={setCompletedTodo} 
       removeTodo={removeTodo} 
+      removeCompletedTodo={removeCompletedTodo}
       />
+
+      </div>
+      
       </div>
 
   );
