@@ -39,7 +39,7 @@ const App: React.FC = () => {
   return (
     <div className="whole">
       <div className="upper">
-        <h1>To-Do App</h1>
+        <h1>To-Do Web</h1>
       <input
         type="text"
         value={newTodo}
