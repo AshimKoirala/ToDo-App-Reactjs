@@ -1,4 +1,4 @@
-# **TO-DO APP**
+# **TO-DO Web**
 
 Todo application using reactjs and typescript with drag and drop feature.
 
