@@ -14,3 +14,6 @@ Todo application using reactjs and typescript with drag and drop feature.
 ## **Removing the task**
 <img width="1124" alt="Screen Shot 2025-01-21 at 10 05 37" src="https://github.com/user-attachments/assets/e63a488a-5729-40f7-9055-f5db2681c421" />
 
+## **Responsive Design**
+<img width="450" alt="Screen Shot 2025-01-21 at 10 12 56" src="https://github.com/user-attachments/assets/299bb93b-df33-4916-9bbe-a1b79e1df565" />
+
