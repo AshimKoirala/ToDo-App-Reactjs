@@ -42,16 +42,28 @@ const ToDoList: React.FC<ToDoListProps> = ({
       if (data) {
          const { todo, from } = JSON.parse(data);
             if (from === "todo" && target === "completed") {
-               setCompletedTodo((prev) => [...prev, todo]);
-               const index = todos.indexOf(todo);
+               setCompletedTodo((prev) => {
+                 const updatedCompleted = [...prev, todo];
+                  localStorage.setItem("completedTodo", JSON.stringify(updatedCompleted)); // Update localStorage
+                  return updatedCompleted;
+                    });
+                   const index = todos.indexOf(todo);
                   if (index !== -1) {
                      removeTodo(index);
                      }
             } else if (from === "completed" && target === "todo") {
-                 setCompletedTodo((prev) => prev.filter((item) => item !== todo));
-                 setTodos((prev) => [...prev, todo]); 
-              } 
-      }
+                 setCompletedTodo((prev) => {
+                 const updatedCompleted = prev.filter((item) => item !== todo);
+                 localStorage.setItem("completedTodo", JSON.stringify(updatedCompleted)); // Update localStorage
+                  return updatedCompleted;
+                  });
+                 setTodos((prev) => {
+                 const updatedTodos = [...prev, todo];
+                 localStorage.setItem("todos", JSON.stringify(updatedTodos)); // Update localStorage
+                 return updatedTodos;
+                });
+            }
+         }
       e.preventDefault();
   };
 

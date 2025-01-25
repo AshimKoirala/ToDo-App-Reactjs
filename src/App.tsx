@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import ToDoList from "./components/ToDoList";
 
 const App: React.FC = () => {
@@ -8,19 +8,39 @@ const App: React.FC = () => {
   const[editTodo,setEditTodo]=useState<string>("");//track value
   const [completedTodo, setCompletedTodo] = useState<string[]>([]);
 
+ useEffect(() => {
+  const storedTodos = localStorage.getItem("todos");
+  const storedCompletedTodo = localStorage.getItem("completedTodo");
+
+  // console.log("Stored Todos:", storedTodos);
+  // console.log("Stored Completed Todos:", storedCompletedTodo); 
+
+  setTodos(storedTodos ? JSON.parse(storedTodos) : []);
+  setCompletedTodo(storedCompletedTodo ? JSON.parse(storedCompletedTodo) : []);
+
+}, []);
+
   const addTodo = () => {
-    if (newTodo) {
-      setTodos([...todos, newTodo]);
-      setNewTodo(""); // Reset input field
-    }
-  };
+  if (newTodo) {
+    const updatedTodos = [...todos, newTodo];
+    setTodos(updatedTodos);
+    localStorage.setItem("todos", JSON.stringify(updatedTodos)); 
+    setNewTodo(""); // Reset input field
+  }
+};
 
   const removeTodo = (index: number) => {
-    setTodos(todos.filter((_, todoIndex) => todoIndex !== index));
-  };
+  const updatedTodos = todos.filter((_, todoIndex) => todoIndex !== index);
+  setTodos(updatedTodos);
+  localStorage.setItem("todos", JSON.stringify(updatedTodos)); 
+};
   
-  const removeCompletedTodo = (index: number) => {
-    setCompletedTodo((prev) => prev.filter((_, todoIndex) => todoIndex !== index));
+ const removeCompletedTodo = (index: number) => {
+
+  
+  const updatedCompletedTodos = completedTodo.filter((_, todoIndex) => todoIndex !== index);
+  setCompletedTodo(updatedCompletedTodos);
+  localStorage.setItem("completedTodo", JSON.stringify(updatedCompletedTodos));
   };
 
   const startEdit =(index:number)=>{
@@ -29,9 +49,11 @@ const App: React.FC = () => {
   };
 
   const saveEdit =(index:number)=>{
-    const UpdateTodos=[...todos];
-    UpdateTodos[index]=editTodo;//update todo with new value
-    setTodos(UpdateTodos);
+    const updatedTodos=[...todos];
+    updatedTodos[index]=editTodo; 
+
+    setTodos(updatedTodos);
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
     setEditingIndex(null);//exit
     setEditTodo("");//clear
   }
