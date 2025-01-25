@@ -17,3 +17,6 @@ Todo application using reactjs and typescript with drag and drop feature.
 ## **Responsive Design**
 <img width="450" alt="Screen Shot 2025-01-21 at 10 12 56" src="https://github.com/user-attachments/assets/299bb93b-df33-4916-9bbe-a1b79e1df565" />
 
+## **Stores data in local storage of browser**
+<img width="1190" alt="Screen Shot 2025-01-25 at 12 26 55" src="https://github.com/user-attachments/assets/dbfd1f45-7323-4ce1-a36d-20ee12f82a6f" />
+
