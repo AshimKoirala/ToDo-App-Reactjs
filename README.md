@@ -1,6 +1,6 @@
-# **TO-DO Web**
-
-Todo application using reactjs and typescript with drag and drop feature.
+# **TO-DO Web** 
+Website: https://ashim-todoweb.vercel.app/
+Todo application using reactjs and typescript with drag and drop feature and the data is saved in the browser's local storage.
 
 ## **Adding task in list**
 <img width="1124" alt="Screen Shot 2025-01-21 at 10 05 16" src="https://github.com/user-attachments/assets/f3abd9a0-6689-4d74-941d-781b254c10bb" />
